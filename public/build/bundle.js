@@ -50,18 +50,18 @@
 	    ReactDOM = __webpack_require__(32);
 
 	var Main = React.createClass({
-	  displayName: 'Main',
+		displayName: 'Main',
 
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      null,
-	      'Hello World from React'
-	    );
-	  }
+		render: function render() {
+			return React.createElement(
+				'div',
+				null,
+				'Hello World from React'
+			);
+		}
 	});
 
-	ReactDOM.render(React.createElement('main', null), document.getElementById('app'));
+	ReactDOM.render(React.createElement(Main, null), document.getElementById('app'));
 
 /***/ },
 /* 1 */
