@@ -49,11 +49,12 @@
 	var React = __webpack_require__(1),
 	    ReactDom = __webpack_require__(32),
 	    Router = __webpack_require__(166).Router,
+	    hashHistory = __webpack_require__(166).hashHistory,
 	    routes = __webpack_require__(223);
 
 	ReactDom.render(React.createElement(
 		Router,
-		null,
+		{ history: hashHistory },
 		routes
 	), document.getElementById('app'));
 
@@ -26075,12 +26076,11 @@
 	'use strict';
 
 	var React = __webpack_require__(1),
-	    ReactRouter = __webpack_require__(166);
+	    History = __webpack_require__(166).hashHistory;
 
 	var SearchGithub = React.createClass({
 		displayName: 'SearchGithub',
 
-		mixins: [ReactRouter.history],
 		getRef: function getRef(ref) {
 			this.usernameRef = ref;
 		},
@@ -26088,7 +26088,7 @@
 			var username = this.usernameRef.value;
 			this.usernameRef.value = '';
 			// Router.history method
-			this.history.pushState(null, 'profile/' + username);
+			History.pushState(null, "profile/" + username);
 		},
 		render: function render() {
 			return React.createElement(
@@ -26096,7 +26096,7 @@
 				{ className: 'col-sm-12' },
 				React.createElement(
 					'form',
-					{ onSubmit: this.handleSubmi },
+					{ onSubmit: this.handleSubmit },
 					React.createElement(
 						'div',
 						{ className: 'form-group col-sm-7' },

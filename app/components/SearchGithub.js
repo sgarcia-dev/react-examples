@@ -1,8 +1,7 @@
 var React = require('react'),
-	ReactRouter = require('react-router');
+	History = require('react-router').hashHistory;
 
 var SearchGithub = React.createClass({
-	mixins: [ReactRouter.history],
 	getRef: function (ref) {
 		this.usernameRef = ref;
 	},
@@ -10,12 +9,12 @@ var SearchGithub = React.createClass({
 		var username = this.usernameRef.value;
 		this.usernameRef.value = '';
 		// Router.history method
-		this.history.pushState(null, 'profile/' + username);
+		History.pushState(null, "profile/" + username);
 	},
 	render: function () {
 		return (
 			<div className="col-sm-12">
-				<form onSubmit={this.handleSubmi}>
+				<form onSubmit={this.handleSubmit}>
 					<div className="form-group col-sm-7">
 						<input type="text" className="form-control" ref={this.getRef}/>
 					</div>
