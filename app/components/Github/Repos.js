@@ -6,10 +6,20 @@ var Repos = React.createClass({
 		repos: React.PropTypes.array.isRequired
 	},
 	render: function () {
-		return(
+		var repos = this.props.repos.map(function(repo, index) {
+			return (
+				<li className="list-group-item" key={index}>
+					{repo.html_url &&  <h4 href={repo.html_url}>{repo.name}</h4>}
+				</li>
+			)
+		});
+
+		return (
 			<div>
-				<h4>Repos</h4>
-				List: {this.props.repos}
+				<h3>User Repos</h3>
+				<ul className="list-group">
+					{repos}
+				</ul>
 			</div>
 		)
 	}
