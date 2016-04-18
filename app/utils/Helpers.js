@@ -1,23 +1,18 @@
-var Axios = require('axios');
+import axios from 'axios';
 
 function getRepos(username) {
-	return Axios.get('https://api.github.com/users/' + username + '/repos');
+	return axios.get(`https://api.github.com/users/${username}/repos`);
 }
 
 function getUserInfo(username) {
-	return Axios.get('https://api.github.com/users/' + username);
+	return axios.get(`https://api.github.com/users/${username}`);
 }
 
-var helpers = {
-	getGithubInfo: function (username) {
-		return Axios.all([getRepos(username), getUserInfo(username)])
-			.then(function (dataArray) {
-				return {
-					repos: dataArray[0].data,
-					bio: dataArray[1].data
-				}
-			});
+const helpers = {
+	getGithubInfo(username) {
+		return axios.all([getRepos(username), getUserInfo(username)])
+			.then((dataArray) => ({ repos: dataArray[0].data, bio: dataArray[1].data }));
 	}
 };
 
-module.exports = helpers;
+export default helpers;
