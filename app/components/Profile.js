@@ -1,9 +1,9 @@
 var React = require('react'),
-	Repos = require('./Github/Repos.js'),
-	UserProfile = require('./Github/UserProfile.js'),
 	ReactFireMixin = require('reactfire'),
 	Firebase = require('firebase');
-import Notes from './Notes/Notes.js';
+import Repos from './Github/Repos';
+import UserProfile from './Github/UserProfile';
+import Notes from './Notes/Notes';
 import helpers from './../utils/helpers';
 
 var Profile = React.createClass({
